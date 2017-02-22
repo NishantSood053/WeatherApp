@@ -16,7 +16,6 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var currentWeatherImage: UIStackView!
     @IBOutlet weak var currentWeatherType: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
     
 
@@ -28,6 +27,23 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.dataSource = self
     }
 
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    //Returns the cell at the row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
+        
+        
+        return cell
+    }
+    
     
 
 }
