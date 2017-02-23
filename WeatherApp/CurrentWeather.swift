@@ -38,7 +38,7 @@ class CurrentWeather{
         
         let currentDate = dateFormatter.string(from: Date())
         
-        self._date = "Today,\(currentDate)"
+        self._date = "Today, \(currentDate)"
         
         return _date
     }
@@ -61,7 +61,7 @@ class CurrentWeather{
         return _currentTemp
     }
     
-    func downloadWeatherDetails(completed: DownloadComplete){
+    func downloadWeatherDetails(completed: @escaping DownloadComplete){
         let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
         
         //Closure
@@ -94,10 +94,8 @@ class CurrentWeather{
                 }
  
             }
-            
+            completed()
         }
-        completed()
-        
         
     }
     
