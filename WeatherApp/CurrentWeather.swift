@@ -68,6 +68,7 @@ class CurrentWeather{
         Alamofire.request(currentWeatherURL).responseJSON{ response in
             let result = response.result
             
+            //Parsing the json response
             if let dict = result.value as? Dictionary<String,AnyObject>{
             
                 if let name = dict["name"] as? String{
@@ -99,6 +100,7 @@ class CurrentWeather{
         
     }
     
+    //Function to convert temperature from kelvin to celcius
     func kelvinToCelcius(temp : Double) -> Double{
     
         let result = temp - 273.15
